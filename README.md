@@ -1,7 +1,10 @@
 # nodemailer-build-attachment
 
-Build and stream attachment's content.
+[![Build Status](https://travis-ci.org/killmenot/nodemailer-build-attachment.svg?branch=master)](https://travis-ci.org/killmenot/nodemailer-build-attachment)
+[![Dependency Status](https://gemnasium.com/badges/github.com/killmenot/nodemailer-build-attachment.svg)](https://gemnasium.com/github.com/killmenot/nodemailer-build-attachment)
+[![npm version](https://badge.fury.io/js/nodemailer-build-attachment.svg)](https://badge.fury.io/js/nodemailer-build-attachment)
 
+Build and stream attachment's content.
 
 Based on [Andris Reinman](https://github.com/andris9)'s work in [buildmail](https://github.com/nodemailer/buildmail).
 
