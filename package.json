@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-build-attachment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build and stream nodemailer attachments",
   "main": "index.js",
   "scripts": {
