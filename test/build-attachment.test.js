@@ -67,6 +67,15 @@ describe('BuildAttachment', function () {
     });
   });
 
+  it('should return instance to itself', function (done) {
+    buildAttachment = new BuildAttachment();
+
+    buildAttachment.setContent('hello world').build(function (err, attachment) {
+      expect(attachment).to.equal(buildAttachment);
+      done();
+    });
+  });
+
   it('should build string content', function (done) {
     new BuildAttachment().setContent('hello world').build(function (err, attachment) {
       expect(attachment.content.toString()).to.equal('hello world');
