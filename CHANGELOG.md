@@ -1,4 +1,12 @@
 
+<a name="1.0.3"></a>
+### 1.0.3 (2016-05-10)
+
+#### Features
+
+* `build` method accepts the optional `options` parameter to init `libbase64.Encoder` instance
+
+
 <a name="1.0.2"></a>
 ### 1.0.2 (2016-05-10)
 

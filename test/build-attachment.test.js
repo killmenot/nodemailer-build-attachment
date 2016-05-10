@@ -117,4 +117,17 @@ describe('BuildAttachment', function () {
       done();
     });
   });
+
+  it('should build content with passed lineLength', function (done) {
+    var options = {
+      lineLength: 10
+    };
+    
+    new BuildAttachment({
+      contentTransferEncoding: 'base64'
+    }).setContent('Lorem ipsum dolor sit amet').build(options, function (err, attachment) {
+      expect(attachment.content.toString()).to.equal('TG9yZW0gaX\r\nBzdW0gZG9s\r\nb3Igc2l0IG\r\nFtZXQ=');
+      done();
+    });
+  });
 });
