@@ -1,0 +1,46 @@
+{
+  "name": "nodemailer-build-attachment",
+  "version": "1.0.0",
+  "description": "Build and stream nodemailer attachments",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:killmenot/nodemailer-build-attachment.git"
+  },
+  "keywords": [
+    "nodemailer",
+    "build",
+    "stream",
+    "attachment"
+  ],
+  "author": {
+    "name": "Alexey Kucherenko",
+    "url": "https://github.com/killmenot"
+  },
+  "contributors": [
+    {
+      "name": "Andris Reinman",
+      "url": "https://github.com/andris9"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/killmenot/nodemailer-build-attachment/issues"
+  },
+  "homepage": "https://github.com/killmenot/nodemailer-build-attachment",
+  "dependencies": {
+    "libbase64": "^0.1.0",
+    "libmime": "^2.0.3",
+    "nodemailer-fetch": "^1.4.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "load-grunt-tasks": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
