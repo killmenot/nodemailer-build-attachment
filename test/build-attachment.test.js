@@ -68,16 +68,16 @@ describe('BuildAttachment', function () {
   });
 
   it('should build string content', function (done) {
-    new BuildAttachment().setContent('hello world').build(function (err, content) {
-      expect(content.toString()).to.equal('hello world');
+    new BuildAttachment().setContent('hello world').build(function (err, attachment) {
+      expect(attachment.content.toString()).to.equal('hello world');
       done();
     });
   });
 
   it('should build stream content', function (done) {
     var content = fs.createReadStream(filename);
-    new BuildAttachment().setContent(content).build(function (err, content) {
-      expect(content.toString()).to.be.eql(text);
+    new BuildAttachment().setContent(content).build(function (err, attachment) {
+      expect(attachment.content.toString()).to.be.eql(text);
       done();
     });
   });
@@ -85,8 +85,8 @@ describe('BuildAttachment', function () {
   it('should build path content', function (done) {
     new BuildAttachment().setContent({
       path: filename
-    }).build(function (err, content) {
-      expect(content.toString()).to.be.eql(text);
+    }).build(function (err, attachment) {
+      expect(attachment.content.toString()).to.be.eql(text);
       done();
     });
   });
@@ -94,8 +94,8 @@ describe('BuildAttachment', function () {
   it('should build href content', function (done) {
     new BuildAttachment().setContent({
       href: 'https://raw.githubusercontent.com/killmenot/nodemailer-build-attachment/master/test/fixtures/test.txt'
-    }).build(function (err, content) {
-      expect(content.toString()).to.be.eql(text);
+    }).build(function (err, attachment) {
+      expect(attachment.content.toString()).to.be.eql(text);
       done();
     });
   });
@@ -103,8 +103,8 @@ describe('BuildAttachment', function () {
   it('should build content to base64 string', function (done) {
     new BuildAttachment({
       contentTransferEncoding: 'base64'
-    }).setContent('hello world').build(function (err, content) {
-      expect(content.toString()).to.equal('aGVsbG8gd29ybGQ=');
+    }).setContent('hello world').build(function (err, attachment) {
+      expect(attachment.content.toString()).to.equal('aGVsbG8gd29ybGQ=');
       done();
     });
   });
