@@ -8,6 +8,9 @@ Build and stream attachment's content.
 
 Based on [Andris Reinman](https://github.com/andris9)'s work in [buildmail](https://github.com/nodemailer/buildmail).
 
+## Requirements
+
+ - Node.js 4+
 
 ## Install
 

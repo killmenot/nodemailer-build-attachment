@@ -2,6 +2,9 @@
   "name": "nodemailer-build-attachment",
   "version": "1.0.4",
   "description": "Build and stream nodemailer attachments",
+  "engines": {
+    "node": ">=4"
+  },
   "main": "index.js",
   "scripts": {
     "test": "grunt && mocha"
