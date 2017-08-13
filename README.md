@@ -1,6 +1,7 @@
 # nodemailer-build-attachment
 
 [![Build Status](https://travis-ci.org/killmenot/nodemailer-build-attachment.svg?branch=master)](https://travis-ci.org/killmenot/nodemailer-build-attachment)
+[![Coverage Status](https://coveralls.io/repos/github/killmenot/nodemailer-build-attachment/badge.svg?branch=master)](https://coveralls.io/github/killmenot/nodemailer-build-attachment?branch=master)
 [![Dependency Status](https://gemnasium.com/badges/github.com/killmenot/nodemailer-build-attachment.svg)](https://gemnasium.com/github.com/killmenot/nodemailer-build-attachment)
 [![npm version](https://badge.fury.io/js/nodemailer-build-attachment.svg)](https://badge.fury.io/js/nodemailer-build-attachment)
 
@@ -11,6 +12,7 @@ Based on [Andris Reinman](https://github.com/andris9)'s work in [buildmail](http
 ## Requirements
 
  - Node.js 4+
+
 
 ## Install
 

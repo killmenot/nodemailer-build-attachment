@@ -9,5 +9,5 @@ node_js:
   - '6'
   - '5'
   - '4'
-before_script:
-  - npm install grunt-cli -g
+after_success:
+  - npm run coveralls
