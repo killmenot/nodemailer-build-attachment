@@ -1,11 +1,19 @@
 # CHANGELOG
 
+<a name="1.0.5"></a>
+### 1.0.5 (2017-09-12)
+
+#### Misc
+
+* bump deps and refactoring
+
+
 <a name="1.0.4"></a>
 ### 1.0.4 (2017-08-23)
 
 #### Misc
 
-* bump dependencies
+* bump deps
 
 
 <a name="1.0.3"></a>
