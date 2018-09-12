@@ -1,8 +1,8 @@
 'use strict';
 
-const expect = require('chai').expect;
 const fs = require('fs');
 const path = require('path');
+const expect = require('chai').expect;
 const BuildAttachment = require('../');
 
 const filename = path.join(__dirname, 'fixtures', 'test.txt');
@@ -62,11 +62,27 @@ describe('BuildAttachment', () => {
     });
   });
 
+  it('should return error when content is already errored', (done) => {
+    const error = new Error('some error');
+
+    new BuildAttachment().setContent(error).build((err) => {
+      expect(err).equal(error);
+      done();
+    });
+  });
+
   it('should return instance to itself', (done) => {
     buildAttachment = new BuildAttachment();
 
     buildAttachment.setContent('hello world').build((err, attachment) => {
       expect(attachment).equal(buildAttachment);
+      done();
+    });
+  });
+
+  it('should build empty content', (done) => {
+    new BuildAttachment().setContent().build((err, attachment) => {
+      expect(attachment.content.toString()).equal('');
       done();
     });
   });
@@ -79,9 +95,21 @@ describe('BuildAttachment', () => {
   });
 
   it('should build stream content', (done) => {
-    var content = fs.createReadStream(filename);
+    const content = fs.createReadStream(filename);
+
     new BuildAttachment().setContent(content).build((err, attachment) => {
-      expect(attachment.content.toString()).be.eql(text);
+      expect(attachment.content.toString()).equal(text);
+      done();
+    });
+  });
+
+  it('should return error when unable to read stream content', (done) => {
+    const expected = 'ENOENT: no such file or directory, open \'/foo/bar/test.txt\'';
+
+    const content = fs.createReadStream('/foo/bar/test.txt');
+
+    new BuildAttachment().setContent(content).build((err) => {
+      expect(err.message).equal(expected);
       done();
     });
   });
@@ -89,8 +117,19 @@ describe('BuildAttachment', () => {
   it('should build path content', (done) => {
     new BuildAttachment().setContent({
       path: filename
-    }).build((err, attachment) => {
-      expect(attachment.content.toString()).be.eql(text);
+    }, {highWaterMark: 10}).build((err, attachment) => {
+      expect(attachment.content.toString()).equal(text);
+      done();
+    });
+  });
+
+  it('should return error when unable to read path content', (done) => {
+    const expected = 'ENOENT: no such file or directory, open \'/foo/bar/test.txt\'';
+
+    new BuildAttachment().setContent({
+      path: '/foo/bar/test.txt'
+    }).build((err) => {
+      expect(err.message).equal(expected);
       done();
     });
   });
@@ -99,16 +138,29 @@ describe('BuildAttachment', () => {
     new BuildAttachment().setContent({
       href: 'https://raw.githubusercontent.com/killmenot/nodemailer-build-attachment/master/test/fixtures/test.txt'
     }).build((err, attachment) => {
-      expect(attachment.content.toString()).be.eql(text);
+      expect(attachment.content.toString()).equal(text);
       done();
     });
   });
 
-  it('should build content to base64 string', (done) => {
+  it('should build content to base64 string (contentTransferEncoding)', (done) => {
+    const expected = 'aGVsbG8gd29ybGQ=';
+
     new BuildAttachment({
       contentTransferEncoding: 'base64'
     }).setContent('hello world').build((err, attachment) => {
-      expect(attachment.content.toString()).equal('aGVsbG8gd29ybGQ=');
+      expect(attachment.content.toString()).equal(expected);
+      done();
+    });
+  });
+
+  it('should build content to base64 string (auto)', (done) => {
+    const expected = 'aGVsbG8gd29ybGQ=';
+
+    new BuildAttachment({
+      contentType: 'text/plain'
+    }).setContent('hello world').build((err, attachment) => {
+      expect(attachment.content.toString()).equal(expected);
       done();
     });
   });
