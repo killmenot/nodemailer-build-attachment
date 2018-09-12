@@ -12,6 +12,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
+.nyc_output
 coverage
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -25,6 +26,7 @@ build/Release
 
 # Dependency directory
 node_modules
+package-lock.json
 
 # Optional npm cache directory
 .npm
@@ -38,4 +40,6 @@ node_modules
 
 # Mac OS X
 .DS_Store
+
+.lock
 
