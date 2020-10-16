@@ -32,7 +32,7 @@
     "url": "https://github.com/killmenot/nodemailer-build-attachment/issues"
   },
   "scripts": {
-    "lint": "jshint lib test index.js",
+    "lint": "eslint lib test index.js --fix",
     "test": "mocha",
     "coverage": "nyc --reporter=html --reporter=text mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
@@ -57,6 +57,13 @@
     "@commitlint/config-conventional": "^11.0.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
+    "dirty-chai": "^2.0.1",
+    "eslint": "^7.10.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.3.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1"

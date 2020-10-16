@@ -2,14 +2,18 @@
 
 const fs = require('fs');
 const path = require('path');
+const chai = require('chai');
 const expect = require('chai').expect;
+const dirtyChai = require('dirty-chai');
 const BuildAttachment = require('../');
 
-const filename = path.join(__dirname, 'fixtures', 'test.txt');
-const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n';
+chai.use(dirtyChai);
 
 describe('BuildAttachment', () => {
   let buildAttachment;
+
+  const filename = path.join(__dirname, 'fixtures', 'test.txt');
+  const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n';
 
   describe('BuildAttachment()', () => {
     it('with default options', () => {
@@ -56,7 +60,7 @@ describe('BuildAttachment', () => {
 
     it('with filename', () => {
       buildAttachment = new BuildAttachment({
-        filename: 'page.html',
+        filename: 'page.html'
       });
       expect(buildAttachment.contentType).equal('text/html');
     });
@@ -75,6 +79,7 @@ describe('BuildAttachment', () => {
     buildAttachment = new BuildAttachment();
 
     buildAttachment.setContent('hello world').build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment).equal(buildAttachment);
       done();
     });
@@ -82,6 +87,7 @@ describe('BuildAttachment', () => {
 
   it('should build empty content', (done) => {
     new BuildAttachment().setContent().build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal('');
       done();
     });
@@ -89,6 +95,7 @@ describe('BuildAttachment', () => {
 
   it('should build string content', (done) => {
     new BuildAttachment().setContent('hello world').build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal('hello world');
       done();
     });
@@ -98,6 +105,7 @@ describe('BuildAttachment', () => {
     const content = fs.createReadStream(filename);
 
     new BuildAttachment().setContent(content).build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal(text);
       done();
     });
@@ -117,7 +125,8 @@ describe('BuildAttachment', () => {
   it('should build path content', (done) => {
     new BuildAttachment().setContent({
       path: filename
-    }, {highWaterMark: 10}).build((err, attachment) => {
+    }, { highWaterMark: 10 }).build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal(text);
       done();
     });
@@ -138,6 +147,7 @@ describe('BuildAttachment', () => {
     new BuildAttachment().setContent({
       href: 'https://raw.githubusercontent.com/killmenot/nodemailer-build-attachment/master/test/fixtures/test.txt'
     }).build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal(text);
       done();
     });
@@ -149,6 +159,7 @@ describe('BuildAttachment', () => {
     new BuildAttachment({
       contentTransferEncoding: 'base64'
     }).setContent('hello world').build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal(expected);
       done();
     });
@@ -160,19 +171,21 @@ describe('BuildAttachment', () => {
     new BuildAttachment({
       contentType: 'text/plain'
     }).setContent('hello world').build((err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal(expected);
       done();
     });
   });
 
   it('should build content with passed lineLength', (done) => {
-    var options = {
+    const options = {
       lineLength: 10
     };
-    
+
     new BuildAttachment({
       contentTransferEncoding: 'base64'
     }).setContent('Lorem ipsum dolor sit amet').build(options, (err, attachment) => {
+      expect(err).to.not.exist();
       expect(attachment.content.toString()).equal('TG9yZW0gaX\r\nBzdW0gZG9s\r\nb3Igc2l0IG\r\nFtZXQ=');
       done();
     });
