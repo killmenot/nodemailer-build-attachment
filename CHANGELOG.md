@@ -5,7 +5,7 @@
 
 #### Misc
 
-* bump deps and refactoring
+*   bump deps and refactoring
 
 
 <a name="1.0.4"></a>
@@ -13,7 +13,7 @@
 
 #### Misc
 
-* bump deps
+*   bump deps
 
 
 <a name="1.0.3"></a>
@@ -21,7 +21,7 @@
 
 #### Features
 
-* `build` method accepts the optional `options` parameter to init `libbase64.Encoder` instance
+*   `build` method accepts the optional `options` parameter to init `libbase64.Encoder` instance
 
 
 <a name="1.0.2"></a>
@@ -29,7 +29,7 @@
 
 #### Bug Fixes
 
-* return correct attachment instance
+*   return correct attachment instance
 
 
 <a name="1.0.1"></a>
@@ -37,11 +37,11 @@
 
 #### Features
 
-* return the instance instead of content
+*   return the instance instead of content
 
 #### Bug Fixes
 
-* remove default base64 content transer encoding
+*   remove default base64 content transer encoding
 
 
 <a name="1.0.0"></a>
@@ -50,4 +50,4 @@
 
 #### Features
 
-* initial release
+*   initial release
