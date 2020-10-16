@@ -3,7 +3,7 @@
   "version": "1.0.5",
   "description": "Build and stream nodemailer attachments",
   "engines": {
-    "node": ">=4"
+    "node": ">=10"
   },
   "main": "index.js",
   "license": "MIT",
