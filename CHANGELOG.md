@@ -1,5 +1,14 @@
 # CHANGELOG
 
+<a name="2.0.0"></a>
+### 2.0.0 (2020-10-16)
+
+#### Misc
+
+*   drop support Node.js less than 10 version
+*   bump deps and refactoring
+
+
 <a name="1.0.5"></a>
 ### 1.0.5 (2017-09-12)
 
