@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "libbase64": "^1.2.1",
-    "libmime": "^4.0.1",
+    "libmime": "^5.0.0",
     "nodemailer-fetch": "^2.1.0"
   },
   "devDependencies": {
