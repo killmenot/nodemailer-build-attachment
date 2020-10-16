@@ -55,17 +55,17 @@
     ]
   },
   "dependencies": {
-    "libbase64": "^1.0.3",
+    "libbase64": "^1.2.1",
     "libmime": "^4.0.1",
     "nodemailer-fetch": "^2.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "chai": "^4.1.2",
-    "coveralls": "^3.0.2",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
     "dirty-chai": "^2.0.1",
-    "eslint": "^7.10.0",
+    "eslint": "^7.11.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
