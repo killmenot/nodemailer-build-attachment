@@ -37,10 +37,6 @@
     "coverage": "nyc --reporter=html --reporter=text mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
   "nyc": {
     "all": true,
     "include": [
@@ -57,10 +53,12 @@
     "nodemailer-fetch": "^2.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
+    "husky": "^4.3.0",
     "mocha": "^5.2.0",
-    "nyc": "^13.0.1",
-    "pre-commit": "^1.2.2"
+    "nyc": "^13.0.1"
   }
 }
