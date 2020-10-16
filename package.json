@@ -6,6 +6,10 @@
     "node": ">=10"
   },
   "main": "index.js",
+  "files": [
+    "lib/**.*",
+    "index.js"
+  ],
   "license": "MIT",
   "author": {
     "name": "Alexey Kucherenko",
