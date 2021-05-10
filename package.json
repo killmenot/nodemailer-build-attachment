@@ -41,7 +41,8 @@
     "lint": "npm run eslint && npm run remark",
     "test": "mocha",
     "coverage": "nyc --reporter=html --reporter=text mocha",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepare": "husky install"
   },
   "nyc": {
     "all": true,
@@ -75,7 +76,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-standard": "^4.1.0",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "mocha": "^8.4.0",
     "nyc": "^15.1.0",
     "remark-cli": "^9.0.0",
